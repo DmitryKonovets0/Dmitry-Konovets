@@ -78,6 +78,7 @@ const Btn = styled.button`
     background-color: #f4f4f4;
     margin-left: 70px;
     font-weight: 500;
+    border: none;
     font-size: 18px;
 `
 const TextWrapper = styled.div`
