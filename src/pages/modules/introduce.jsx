@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+
 import sun from '../../images/icons/sun.svg'
 import arrow1 from '../../images/arrow/arrow-1.svg'
 import I from '../../images/picture.png'
@@ -16,7 +17,6 @@ const SectionIntroduce = styled.div`
     position: relative;
     height: 715px;
     padding-top: 32px;
-    background-color: #202020;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@ const Header = styled.div`
     margin: 0 0 24px;
     padding: 20px 5%;
     box-shadow: 0 8px 26.5px 0 rgba(0, 0, 0, 0.2);
-    z-index: 3;
+    z-index: 5;
 `
 const Ul = styled.ul`
 display: flex;
@@ -38,11 +38,12 @@ const LiText = styled.div`
     display: flex;
     font-size: 20px;
     font-weight: 300;
-    color: #f4f4f4;
     width: 457px;
     height: 24px;
     margin: 8px 0 8px 0;
     justify-content: space-between;
+    text-transform: uppercase;
+
 `
 const LiLink = styled.a`
     text-decoration: none;
@@ -59,15 +60,19 @@ const LanguageToggle = styled.div`
     margin: 8px 0 7px 71px;
     display: flex;
     gap: 20px;
-    color: #f4f4f4;
 `
 const Eng = styled.div`
-cursor: pointer;
+    cursor: pointer;
+    text-transform: uppercase;
+
 `
 const Ua = styled.div`
-cursor: pointer;
+    cursor: pointer;
+    text-transform: uppercase;
+
 `
 const Btn = styled.button`
+    cursor: pointer;
     display: flex;
     width: 150px;
     height: 40px;
@@ -80,6 +85,9 @@ const Btn = styled.button`
     font-weight: 500;
     border: none;
     font-size: 18px;
+    text-transform: uppercase;
+    color: #202020;
+
 `
 const TextWrapper = styled.div`
     position: absolute;
@@ -92,10 +100,8 @@ const TextWrapper = styled.div`
 `
 const Hi = styled.h2 `
     font-size: 30px;
-    color: #f4f4f4;
     text-align: left;
     display: flex;
-    text-transform: none;
     position: relative;
 `
 const Sticker = styled.img`
@@ -107,11 +113,7 @@ const Frontend = styled.h1`
     font-size: 50px;
     text-align: left;
     background-image: linear-gradient(170deg, rgba(47,35,250,1) 0%, rgba(4,163,42,1) 61%);
-    text-transform: none;
-    font-weight: normal;
     font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
     letter-spacing: normal;
     -webkit-background-clip: text;
     background-clip: text;
@@ -121,10 +123,8 @@ const Frontend = styled.h1`
 const Descr = styled.h3`
     font-size: 20px;
     text-align: left;
-    color: #f4f4f4;
     margin-top: 40px;
     font-weight: 300;
-    text-transform: none;
     z-index: 2;
     position: relative;
     background: transparent;
@@ -137,6 +137,7 @@ const Arrow = styled.div`
 `
 const Dmitry = styled.img `
     position: absolute;
+    bottom: 67px;
     right: 3%;
     z-index: 2;
 `
@@ -155,29 +156,49 @@ const BubbleSecond = styled.img `
 const WrapperIcons = styled.div`
     display: flex;
     position: absolute;
-    bottom: 0;
+    background: transparent;
+    bottom: 69px;
     left: 0;
     z-index: 4;
     gap: 46px;
-    width: 271px;
+    width: 380px;
     height: 38px;
 `
-const IconsLink = styled.a`
-    width: 24px;
-    height: 24px;
+const IconLinkYoutube = styled.a`
+    position: relative;
+    bottom: 3px;
+`
+const IconsLink = styled.a `
+    background: transparent;
+`
+const IconsImg = styled.img `
+    background: transparent;
 `
 export default class Introduce extends Component {
     constructor(props) {
         super(props);
         this.instagram = 'https://www.instagram.com/konovets_dmitry/';
-        this.telegram = '@DmitryKonovets';
+        this.telegram = 'https://t.me/DmitryKonovets';
         this.youtube = 'https://www.youtube.com/channel/UCGdbh3u1lShvIrFH7h5D0yw'
         this.linkedin = 'https://www.linkedin.com/in/dmitry-konovets-021a34263/'
         this.github = 'https://github.com/DmitryKonovets0'
+        this.state = {
+            buttonText: "Contact me", // Начальный текст кнопки
+            t: 0
+        };
+    }
 
+    changeButtonText = (newButtonText) => {
+        this.props.changeTState(1);
+
+        // Изменяем состояние buttonText
+        this.setState({
+            buttonText: newButtonText
+        });
     }
     render() {
         return (
+
             <SectionIntroduce>
                 <Header>
                     <Ul>
@@ -193,8 +214,8 @@ export default class Introduce extends Component {
                             <Eng>eng</Eng>
                             <Ua>ua</Ua>
                         </LanguageToggle>
-                        <Btn>
-                            contact me
+                        <Btn onClick={() => this.changeButtonText("New Text")}>
+                            {this.state.buttonText}
                         </Btn>
                     </Ul>
                 </Header>
@@ -223,11 +244,11 @@ export default class Introduce extends Component {
                 <BubbleFirst src={bubbleFirst} alt='bubble'/>
                 <BubbleSecond src={bubbleSecond} alt='bubble'/>
                 <WrapperIcons>
-                    <IconsLink href={this.github}><img src={githubCatIcon} alt="github"/></IconsLink>
-                    <IconsLink href={this.linkedin}><img src={linkedinIcon} alt="linkedin"/></IconsLink>
-                    <IconsLink href={this.instagram}><img src={instagramIcon} alt="instagram"/></IconsLink>
-                    <IconsLink href={this.telegram}><img src={telegramIcon} alt="telegram"/></IconsLink>
-                    <IconsLink href={this.youtube}><img src={youtubeIcon} alt="youtube"/></IconsLink>
+                    <IconsLink href={this.github}><IconsImg src={githubCatIcon} alt="github"/></IconsLink>
+                    <IconsLink href={this.linkedin}><IconsImg src={linkedinIcon} alt="linkedin"/></IconsLink>
+                    <IconsLink href={this.instagram}><IconsImg src={instagramIcon} alt="instagram"/></IconsLink>
+                    <IconsLink href={this.telegram}><IconsImg src={telegramIcon} alt="telegram"/></IconsLink>
+                    <IconLinkYoutube href={this.youtube}><IconsImg src={youtubeIcon} alt="youtube"/></IconLinkYoutube>
                 </WrapperIcons>
             </SectionIntroduce>
         );
