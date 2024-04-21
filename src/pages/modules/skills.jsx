@@ -56,11 +56,34 @@ const MainText = styled.h2 `
     font-weight: 600;
 `
 const SpanWord =  styled.span`
-    background-image: linear-gradient(170deg, rgba(47,35,250,1) 0%, rgba(4,163,42,1) 61%);
     -webkit-background-clip: text;
     font-stretch: normal;
     letter-spacing: normal;
     -webkit-text-fill-color: transparent;
+    background: linear-gradient(
+            to right,
+            #283C86 20%,
+            #45A247 30%,
+            #283C86 70%,
+            #45A247 80%
+    );
+    background-clip: text;
+    text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+\`
+;
 `
 const TitleSkills = styled.h2`
     margin-top: 300px;

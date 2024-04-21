@@ -21,8 +21,7 @@ const SectionIntroduce = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-`;
-const Header = styled.div`
+`, Header = styled.div`
     position: fixed;
     top: 0;
     width: 100%;
@@ -31,11 +30,9 @@ const Header = styled.div`
     padding: 20px 5%;
     box-shadow: 0 8px 26.5px 0 rgba(0, 0, 0, 0.2);
     z-index: 5;
-`
-const Ul = styled.ul`
-display: flex;
-`
-const LiText = styled.div`
+`, Ul = styled.ul`
+    display: flex;
+`, LiText = styled.div`
     display: flex;
     font-size: 20px;
     font-weight: 300;
@@ -45,44 +42,41 @@ const LiText = styled.div`
     justify-content: space-between;
     text-transform: uppercase;
     padding-top: 5px;
-`
-const StyledLink = styled(Link)`
+`, StyledLink = styled(Link)`
     color: inherit;
     cursor: pointer;
+
     &:hover {
-        transition: all .2s ;
+        transition: all .2s;
         color: #CACACA;
     }
-`;
-const ThemeToggle = styled.div `
+`, ThemeToggle = styled.div`
     width: 25px;
     height: 25px;
     margin: 8px 0 7px 34%;
-    cursor:pointer;
-`
-const LanguageToggle = styled.div`
+    cursor: pointer;
+`, LanguageToggle = styled.div`
     margin: 8px 0 7px 71px;
     display: flex;
     gap: 20px;
     padding-top: 5px;
-`
-const Eng = styled.div`
+`, Eng = styled.div`
     cursor: pointer;
     text-transform: uppercase;
+
     &:hover {
-        transition: all .2s ;
+        transition: all .2s;
         color: #CACACA;
     }
-`
-const Ua = styled.div`
+`, Ua = styled.div`
     cursor: pointer;
     text-transform: uppercase;
+
     &:hover {
-        transition: all .2s ;
+        transition: all .2s;
         color: #CACACA;
     }
-`
-const Btn = styled.button`
+`, Btn = styled.button`
     cursor: pointer;
     display: flex;
     width: 150px;
@@ -101,44 +95,60 @@ const Btn = styled.button`
     @supports (-moz-appearance:none) {
         padding-top: 13px;
     }
+
     &:hover {
         transition: all .2s;
         background: #CACACA;
     }
-`
-const TextWrapper = styled.div`
+`, TextWrapper = styled.div`
     position: absolute;
     left: 0;
     width: 610px;
     height: 339px;
     display: flex;
     flex-direction: column;
-`
-const Hi = styled.h2 `
+`, Hi = styled.h2`
     font-size: 30px;
     text-align: left;
     display: flex;
     position: relative;
-`
-const Sticker = styled.img`
+`, Sticker = styled.img`
     position: absolute;
     top: -32px;
     left: 215px;
-`
-const Frontend = styled.h1`
+`, Frontend = styled.h1`
     font-size: 50px;
     text-align: left;
-    background-image: linear-gradient(170deg, rgba(47,35,250,1) 0%, rgba(4,163,42,1) 61%);
     font-stretch: normal;
     letter-spacing: normal;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     @supports (-moz-appearance:none) {
-            margin-top: 10px;
+        margin-top: 10px;
     }
-`
-const Descr = styled.h3`
+    background: linear-gradient(
+            to right,
+            #283C86 20%,
+            #45A247 30%,
+            #283C86 70%,
+            #45A247 80%
+    );
+    background-clip: text;
+    text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+`, Descr = styled.h3`
     font-size: 20px;
     text-align: left;
     margin-top: 40px;
@@ -146,32 +156,27 @@ const Descr = styled.h3`
     z-index: 2;
     position: relative;
     background: transparent;
-`
-const Arrow = styled.div`
+`, Arrow = styled.div`
     position: absolute;
     top: 179px;
     right: 490px;
-`
-const Dmitry = styled.img `
+`, Dmitry = styled.img`
     position: absolute;
     bottom: 67px;
     right: 3%;
     border-radius: 13px;
     z-index: 2;
-`
-const BubbleFirst = styled.img `
+`, BubbleFirst = styled.img`
     position: absolute;
     right: -6%;
     top: -1%;
     z-index: 1;
-`
-const BubbleSecond = styled.img `
+`, BubbleSecond = styled.img`
     position: absolute;
     left: -6%;
     bottom: -1%;
     z-index: 1;
-`
-const WrapperIcons = styled.div`
+`, WrapperIcons = styled.div`
     display: flex;
     position: absolute;
     background: transparent;
@@ -181,17 +186,14 @@ const WrapperIcons = styled.div`
     gap: 46px;
     width: 380px;
     height: 38px;
-`
-const IconLinkYoutube = styled.a`
+`, IconLinkYoutube = styled.a`
     position: relative;
     bottom: 3px;
-`
-const IconsLink = styled.a `
+`, IconsLink = styled.a`
     background: transparent;
-`
-const IconsImg = styled.img `
+`, IconsImg = styled.img`
     background: transparent;
-`
+`;
 export default class Introduce extends Component {
     constructor(props) {
         super(props);

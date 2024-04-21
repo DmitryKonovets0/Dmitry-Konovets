@@ -13,21 +13,13 @@ const SectionPortfolio = styled.div`
     padding-top: 351px;
     position: relative;
     z-index: 3;
-`
-const PortfolioText = styled.h2`
+`, PortfolioText = styled.h2`
     font-size: 45px;
     font-weight: 600;
     position: relative;
     z-index: 2;
     background-color: transparent;
-`
-const shineAnimation = keyframes`
-    to {
-        background-position: 200% center;
-    }
-`;
-
-const SpanText = styled.span`
+`, SpanText = styled.span`
     text-align: center;
     background: linear-gradient(
             to right,
@@ -41,52 +33,47 @@ const SpanText = styled.span`
     -webkit-text-fill-color: transparent;
     text-fill-color: transparent;
     background-size: 500% auto;
-    animation: textShine 3s ease-in-out infinite alternate;
+    animation: textShine 5s ease-in-out infinite alternate;
 }
-    @keyframes textShine {
-        0% {
-            background-position: 0% 50%;
-        }
-        100% {
-            background-position: 100% 50%;
-        }
+
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
     }
-`;
-const Bubble = styled.img`
+    100% {
+        background-position: 100% 50%;
+    }
+}
+`, Bubble = styled.img`
     position: absolute;
     top: 517px;
     z-index: 0;
     right: -6%;
-`
-const Title = styled.h2`
+`, Title = styled.h2`
     font-size: 30px;
     font-weight: 500;
     text-align: center;
     margin-top: 300px;
     background: transparent;
-`
-const Line = styled.img`
+`, Line = styled.img`
     position: absolute;
     z-index: -1;
     left: -124px;
     top: 780px;
     width: 116%;
-`
-const DmitryImg = styled.img`
+`, DmitryImg = styled.img`
     position: absolute;
     top: 950px;
     left: 0;
     z-index: 2;
     background: transparent;
-`
-const WrapperButton = styled.div`
+`, WrapperButton = styled.div`
     background: transparent;
     display: flex;
     justify-content: center;
-    margin-top:60px ;
+    margin-top: 60px;
     margin-bottom: -60px;
-`
-const ButtonP = styled.div`
+`, ButtonP = styled.div`
     width: 190px;
     height: 35px;
     background: #fff;
@@ -97,8 +84,7 @@ const ButtonP = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-`
-const ButtonW = styled.div`
+`, ButtonW = styled.div`
     width: 190px;
     height: 35px;
     background: #fff;
@@ -109,8 +95,7 @@ const ButtonW = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-`
-const WrapperProject = styled.div`
+`, WrapperProject = styled.div`
     position: relative;
     width: 610px;
     margin: 120px auto 0;
@@ -124,43 +109,38 @@ const WrapperProject = styled.div`
     background-color: rgba(244, 244, 244, 0.03);
     padding: 40px 85px;
     z-index: 2;
-`
-const ProjectTitle = styled.div`
+`, ProjectTitle = styled.div`
     font-size: 30px;
     font-weight: 500;
     background: transparent;
     text-align: center;
 
-`
-const ProjectDescr = styled.div`
+`, ProjectDescr = styled.div`
     text-align: center;
     font-size: 20px;
     margin-top: 14px;
     font-weight: 300;
     background: transparent;
     margin-bottom: 40px;
-`
-const ProjectGithub = styled.img`
+`, ProjectGithub = styled.img`
     background: none;
     display: block;
     margin: 10px auto 0;
 
-`
-const ProjectPrevR = styled.img`
+`, ProjectPrevR = styled.img`
     position: absolute;
     z-index: 3;
     bottom: -20px;
     right: -197px;
     background: none;
-`
-const ProjectPrevL = styled.img`
+`, ProjectPrevL = styled.img`
     position: absolute;
     z-index: 3;
     bottom: -20px;
     left: -197px;
     transform: rotate(328deg);
     background: none;
-`
+`;
 export default class Portfolio extends Component {
 
     render() {
