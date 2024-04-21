@@ -9,7 +9,7 @@ import githubCatIcon from '../../images/icons/github-cat.svg'
 import ProjectImg from '../../images/icons/project-img.svg'
 
 const SectionPortfolio = styled.div`
-    height: 1486px;
+    height: 1970px;
     padding-top: 351px;
     position: relative;
     z-index: 3;

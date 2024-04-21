@@ -5,6 +5,7 @@ import styled, {createGlobalStyle} from "styled-components";
 import Introduce from "./modules/introduce";
 import Skills from "./modules/skills";
 import Portfolio from "./modules/portfolio";
+import Contacts from "./modules/contacts";
 
 const Container = styled.div`
     width:90%;
@@ -51,7 +52,8 @@ export default class IndexPage extends Component {
             <Introduce t={this.state.t} changeTState={this.changeTState} />
                 <Skills/>
             <Portfolio/>
-            </Container>
+            <Contacts/>
+    </Container>
         );
     }
 }
