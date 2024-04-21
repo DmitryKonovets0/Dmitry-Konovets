@@ -4,6 +4,7 @@ import styled, {createGlobalStyle} from "styled-components";
 
 import Introduce from "./modules/introduce";
 import Skills from "./modules/skills";
+import Portfolio from "./modules/portfolio";
 
 const Container = styled.div`
     width:90%;
@@ -19,6 +20,12 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 500;
         box-sizing: border-box;
         color: ${props => props.textColor};
+    }
+    body {
+        overflow-x: hidden;
+    }
+    a{
+        background:none;
     }
     
 `;
@@ -43,6 +50,7 @@ export default class IndexPage extends Component {
             <GlobalStyle backgroundColor={backgroundColor} textColor={textColor} />
             <Introduce t={this.state.t} changeTState={this.changeTState} />
                 <Skills/>
+            <Portfolio/>
             </Container>
         );
     }

@@ -15,6 +15,7 @@ import instagramIcon from '../../images/icons/instagram.svg'
 import youtubeIcon from '../../images/icons/youtube.svg'
 
 const SectionIntroduce = styled.div`
+    
     position: relative;
     height: 715px;
     padding-top: 32px;
@@ -47,15 +48,15 @@ const LiText = styled.div`
     
 
 `
-const LiLink = styled.a`
+const StyledLink = styled(Link)`
     text-decoration: none;
     color: inherit;
     cursor: pointer;
     &:hover {
         transition: all .2s ;
-        color: #bdbdbd;
+        color: #CACACA;
     }
-`
+`;
 const ThemeToggle = styled.div `
     width: 25px;
     height: 25px;
@@ -72,7 +73,7 @@ const Eng = styled.div`
     text-transform: uppercase;
     &:hover {
         transition: all .2s ;
-        color: #bdbdbd;
+        color: #CACACA;
     }
 
 `
@@ -81,7 +82,7 @@ const Ua = styled.div`
     text-transform: uppercase;
     &:hover {
         transition: all .2s ;
-        color: #bdbdbd;
+        color: #CACACA;
     }
 
 `
@@ -103,7 +104,7 @@ const Btn = styled.button`
     color: #202020;
     &:hover {
         transition: all .2s ;
-        background: #bdbdbd;
+        background: #CACACA;
     }
 
 `
@@ -221,13 +222,9 @@ export default class Introduce extends Component {
                 <Header>
                     <Ul>
                         <LiText>
-                            <LiLink>
-                                <Link to="about-me" smooth={true} duration={500} offset={-50}>about me</Link>
-                            </LiLink>
-                             <LiLink>
-                                 <Link to="skills" smooth={true} duration={500} offset={-50}>skills</Link>
-                             </LiLink>
-                             <LiLink href={this.linkedin}>portfolio</LiLink>
+                                <StyledLink to="about-me" smooth={true} duration={500} offset={-50} className="link">about me</StyledLink>
+                                 <StyledLink to="skills" smooth={true} duration={500} offset={-50}>skills</StyledLink>
+                             <StyledLink to="portfolio" smooth={true} duration={500} offset={-50} >portfolio</StyledLink>
                         </LiText>
                         <ThemeToggle>
                             <img src={sun} alt="sun"/>
