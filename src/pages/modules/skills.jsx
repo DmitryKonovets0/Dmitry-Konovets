@@ -82,10 +82,9 @@ const WrapperSkills = styled.div`
 `
 const LineSkills = styled.div`
     width: 70%;
-    margin: 0 auto;
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
+    margin: 50px auto 0;
 `
 const SkillDescr = styled.h3`
     font-size: 15px;
@@ -96,9 +95,8 @@ const Divider = styled.div`
     height: 1px;
     width: 70%;
     background-color: #f4f4f4;
-    margin: 0 auto;
-    margin-top: 50px;
-    
+    margin: 50px auto 0;
+
 `
 export default class Skills extends Component {
 

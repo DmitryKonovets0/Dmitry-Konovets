@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 import bubble from '../../images/icons/bubble/third-section/Ellipse 1.svg'
 import Dmitry from '../../images/icons/sticker/sticker-macbook.svg'
@@ -21,13 +21,37 @@ const PortfolioText = styled.h2`
     z-index: 2;
     background-color: transparent;
 `
+const shineAnimation = keyframes`
+    to {
+        background-position: 200% center;
+    }
+`;
+
 const SpanText = styled.span`
-    background-image: linear-gradient(170deg, rgba(47,35,250,1) 0%, rgba(4,163,42,1) 61%);
+    text-align: center;
+    background: linear-gradient(
+            to right,
+            #283C86 20%,
+            #45A247 30%,
+            #283C86 70%,
+            #45A247 80%
+    );
     -webkit-background-clip: text;
-    font-stretch: normal;
-    letter-spacing: normal;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-`
+    text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 3s ease-in-out infinite alternate;
+}
+    @keyframes textShine {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+`;
 const Bubble = styled.img`
     position: absolute;
     top: 517px;
@@ -90,7 +114,7 @@ const WrapperProject = styled.div`
     position: relative;
     width: 610px;
     margin: 120px auto 0;
-    height: 295px;
+    min-height: 295px;
     display: flex;
     flex-direction: column;
     border-radius: 30px;
@@ -114,6 +138,7 @@ const ProjectDescr = styled.div`
     margin-top: 14px;
     font-weight: 300;
     background: transparent;
+    margin-bottom: 40px;
 `
 const ProjectGithub = styled.img`
     background: none;

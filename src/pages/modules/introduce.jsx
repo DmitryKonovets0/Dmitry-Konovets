@@ -15,7 +15,6 @@ import instagramIcon from '../../images/icons/instagram.svg'
 import youtubeIcon from '../../images/icons/youtube.svg'
 
 const SectionIntroduce = styled.div`
-    
     position: relative;
     height: 715px;
     padding-top: 32px;
@@ -45,8 +44,7 @@ const LiText = styled.div`
     margin: 8px 0 8px 0;
     justify-content: space-between;
     text-transform: uppercase;
-    
-
+    padding-top: 5px;
 `
 const StyledLink = styled(Link)`
     color: inherit;
@@ -66,6 +64,7 @@ const LanguageToggle = styled.div`
     margin: 8px 0 7px 71px;
     display: flex;
     gap: 20px;
+    padding-top: 5px;
 `
 const Eng = styled.div`
     cursor: pointer;
@@ -74,7 +73,6 @@ const Eng = styled.div`
         transition: all .2s ;
         color: #CACACA;
     }
-
 `
 const Ua = styled.div`
     cursor: pointer;
@@ -83,7 +81,6 @@ const Ua = styled.div`
         transition: all .2s ;
         color: #CACACA;
     }
-
 `
 const Btn = styled.button`
     cursor: pointer;
@@ -101,11 +98,13 @@ const Btn = styled.button`
     font-size: 18px;
     text-transform: uppercase;
     color: #202020;
+    @supports (-moz-appearance:none) {
+        padding-top: 13px;
+    }
     &:hover {
-        transition: all .2s ;
+        transition: all .2s;
         background: #CACACA;
     }
-
 `
 const TextWrapper = styled.div`
     position: absolute;
@@ -114,7 +113,6 @@ const TextWrapper = styled.div`
     height: 339px;
     display: flex;
     flex-direction: column;
-    
 `
 const Hi = styled.h2 `
     font-size: 30px;
@@ -136,7 +134,9 @@ const Frontend = styled.h1`
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-
+    @supports (-moz-appearance:none) {
+            margin-top: 10px;
+    }
 `
 const Descr = styled.h3`
     font-size: 20px;
@@ -146,7 +146,6 @@ const Descr = styled.h3`
     z-index: 2;
     position: relative;
     background: transparent;
-
 `
 const Arrow = styled.div`
     position: absolute;
@@ -157,6 +156,7 @@ const Dmitry = styled.img `
     position: absolute;
     bottom: 67px;
     right: 3%;
+    border-radius: 13px;
     z-index: 2;
 `
 const BubbleFirst = styled.img `
