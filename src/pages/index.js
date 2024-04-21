@@ -6,6 +6,7 @@ import Introduce from "./modules/introduce";
 import Skills from "./modules/skills";
 import Portfolio from "./modules/portfolio";
 import Contacts from "./modules/contacts";
+import Footer from "./modules/footer";
 
 const Container = styled.div`
     width:90%;
@@ -53,6 +54,7 @@ export default class IndexPage extends Component {
                 <Skills/>
             <Portfolio/>
             <Contacts/>
+            <Footer/>
     </Container>
         );
     }
