@@ -14,9 +14,7 @@ import react from '../../images/icons/skills/react.svg'
 import BEM from '../../images/icons/skills/BEM.svg'
 import SCSS from '../../images/icons/skills/SCSS.svg'
 import redux from '../../images/icons/skills/redux.svg'
-import ReactBootstrap  from '../../images/icons/skills/React-Bootstrap.svg'
 import styledComponent from '../../images/icons/skills/styled-components.svg'
-import tailwind from '../../images/icons/skills/tailwind.svg'
 import typescript from '../../images/icons/skills/typescript.svg'
 
 const SectionSkills = styled.div`
@@ -106,7 +104,7 @@ export default class Skills extends Component {
 
     render() {
         return(
-            <SectionSkills>
+            <SectionSkills id='skills'>
                     <WrapperIcons>
                         <Stroke src={wrapperIcons} alt='wrapper-icons'/>
                         <IconsLink href={this.github}><IconsImg src={githubCatIcon} alt="github"/></IconsLink>
@@ -115,11 +113,11 @@ export default class Skills extends Component {
                         <IconsLink href={this.telegram}><IconsImg src={telegramIcon} alt="telegram"/></IconsLink>
                         <IconLinkYoutube href={this.youtube}><IconsImg src={youtubeIcon} alt="youtube"/></IconLinkYoutube>
                     </WrapperIcons>
-                <MainText>
+                <MainText >
                     I got all my <SpanWord>skills</SpanWord> from mentored courses. <br/>
                     I focused on the frontend the most. Now I know frontend <br/> language, preprocessors, frameworks, and libraries.
                 </MainText>
-                <TitleSkills>My skills</TitleSkills>
+                <TitleSkills >My skills</TitleSkills>
                 <DmitryImg src={Dmitry} alt='Dmitry-Konovets'/>
                 <LineSkills>
                 <WrapperSkills>

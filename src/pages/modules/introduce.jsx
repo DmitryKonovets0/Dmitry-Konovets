@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Link } from "react-scroll";
 
 import sun from '../../images/icons/sun.svg'
 import arrow1 from '../../images/arrow/arrow-1.svg'
@@ -43,12 +44,17 @@ const LiText = styled.div`
     margin: 8px 0 8px 0;
     justify-content: space-between;
     text-transform: uppercase;
+    
 
 `
 const LiLink = styled.a`
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+    &:hover {
+        transition: all .2s ;
+        color: #bdbdbd;
+    }
 `
 const ThemeToggle = styled.div `
     width: 25px;
@@ -64,11 +70,19 @@ const LanguageToggle = styled.div`
 const Eng = styled.div`
     cursor: pointer;
     text-transform: uppercase;
+    &:hover {
+        transition: all .2s ;
+        color: #bdbdbd;
+    }
 
 `
 const Ua = styled.div`
     cursor: pointer;
     text-transform: uppercase;
+    &:hover {
+        transition: all .2s ;
+        color: #bdbdbd;
+    }
 
 `
 const Btn = styled.button`
@@ -87,6 +101,10 @@ const Btn = styled.button`
     font-size: 18px;
     text-transform: uppercase;
     color: #202020;
+    &:hover {
+        transition: all .2s ;
+        background: #bdbdbd;
+    }
 
 `
 const TextWrapper = styled.div`
@@ -199,12 +217,16 @@ export default class Introduce extends Component {
     render() {
         return (
 
-            <SectionIntroduce>
+            <SectionIntroduce id='about-me'>
                 <Header>
                     <Ul>
                         <LiText>
-                            <LiLink href={this.instagram}>about me</LiLink>
-                             <LiLink href={this.youtube}>skills</LiLink>
+                            <LiLink>
+                                <Link to="about-me" smooth={true} duration={500} offset={-50}>about me</Link>
+                            </LiLink>
+                             <LiLink>
+                                 <Link to="skills" smooth={true} duration={500} offset={-50}>skills</Link>
+                             </LiLink>
                              <LiLink href={this.linkedin}>portfolio</LiLink>
                         </LiText>
                         <ThemeToggle>
