@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Component } from "react";
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 
 import bubble from '../../images/icons/bubble/third-section/Ellipse 1.svg'
 import Dmitry from '../../images/icons/sticker/sticker-macbook.svg'
 import line from '../../images/line/lines.svg'
 import githubCatIcon from '../../images/icons/github-cat.svg'
-import ProjectImg from '../../images/icons/project-img.svg'
+import ProjectImg from '../../images/project-img.png'
 
 const SectionPortfolio = styled.div`
     height: 1970px;
@@ -99,7 +99,7 @@ const SectionPortfolio = styled.div`
     position: relative;
     width: 610px;
     margin: 120px auto 0;
-    min-height: 295px;
+    min-height: 265px;
     display: flex;
     flex-direction: column;
     border-radius: 30px;
@@ -128,12 +128,19 @@ const SectionPortfolio = styled.div`
     margin: 10px auto 0;
 
 `, ProjectPrevR = styled.img`
+    width: 40%;
+    height: 40%;
+    border-radius: 13px;
     position: absolute;
     z-index: 3;
     bottom: -20px;
     right: -197px;
+    transform: rotate(21deg);
     background: none;
 `, ProjectPrevL = styled.img`
+    width: 40%;
+    height: 40%;
+    border-radius: 13px;
     position: absolute;
     z-index: 3;
     bottom: -20px;
@@ -159,18 +166,18 @@ export default class Portfolio extends Component {
                     <ButtonP>Personal</ButtonP>
                 </WrapperButton>
                 <WrapperProject>
-                    <ProjectTitle>Project Name</ProjectTitle>
-                    <ProjectDescr>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A corporis deleniti illo minus modi molestiae pariatur temporibus. Esse magni maxime omnis quam quis quo repellendus sit. Aut dolores numquam quidem.</ProjectDescr>
-                    <a href="#"><ProjectGithub src={githubCatIcon}></ProjectGithub></a>
+                    <ProjectTitle>Voice tag lab</ProjectTitle>
+                    <ProjectDescr>In Voice tag lab project I used react - gatsby, scss preprocessor and js technologies.  </ProjectDescr>
+                    <a href="https://github.com/DmitryKonovets0/Voice-Tag-Lab"><ProjectGithub src={githubCatIcon}></ProjectGithub></a>
                     <ProjectPrevR src={ProjectImg}></ProjectPrevR>
                 </WrapperProject>
                 <WrapperProject>
                     <ProjectTitle>Project Name</ProjectTitle>
                     <ProjectDescr>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A corporis deleniti illo minus modi molestiae pariatur temporibus. Esse magni maxime omnis quam quis quo repellendus sit. Aut dolores numquam quidem.</ProjectDescr>
                     <a href="#"><ProjectGithub src={githubCatIcon}></ProjectGithub></a>
-                    <ProjectPrevL src={ProjectImg}></ProjectPrevL>
+                    <ProjectPrevL src={ProjectImg} ></ProjectPrevL>
                 </WrapperProject>
-            </SectionPortfolio>
+            </SectionPortfolio >
         )
     }
 }

@@ -52,12 +52,12 @@ const LinkNickname = styled.h2`
 export default class Contacts extends Component {
     render() {
         return(
-            <SectionContacts>
+            <SectionContacts id='contacts'>
                 <Header>Contacts</Header>
                 <WrapperLinks>
                     <LinkItem>
                         <LinkImg src={github} alt=""/>
-                        <LinkNickname>Dmitry Konovets</LinkNickname>
+                        <LinkNickname>DmitryKonovets0</LinkNickname>
                     </LinkItem>
                     <LinkItem>
                         <LinkImg src={linkedin} alt=""/>
@@ -65,15 +65,15 @@ export default class Contacts extends Component {
                     </LinkItem>
                     <LinkItem>
                         <LinkImg src={instagram} alt=""/>
-                        <LinkNickname>Dmitry Konovets</LinkNickname>
+                        <LinkNickname>dmitry_konovets</LinkNickname>
                     </LinkItem>
                     <LinkItem>
                         <LinkImg src={telegram} alt=""/>
-                        <LinkNickname>Dmitry Konovets</LinkNickname>
+                        <LinkNickname>@DmitryKonovets</LinkNickname>
                     </LinkItem>
                     <LinkItem>
                         <LinkImg src={youtube} alt=""/>
-                        <LinkNickname>Dmitry Konovets</LinkNickname>
+                        <LinkNickname>@dmitrykonovets0</LinkNickname>
                     </LinkItem>
                 </WrapperLinks>
             </SectionContacts>

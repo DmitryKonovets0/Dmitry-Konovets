@@ -95,10 +95,14 @@ const SectionIntroduce = styled.div`
     @supports (-moz-appearance:none) {
         padding-top: 13px;
     }
-
     &:hover {
         transition: all .2s;
         background: #CACACA;
+    }
+    &:active {
+        background-image: linear-gradient(92deg, #283c86 0%, #45a247 94%);
+        color: #fff;
+        transition: .5s all;
     }
 `, TextWrapper = styled.div`
     position: absolute;
@@ -228,14 +232,14 @@ export default class Introduce extends Component {
                              <StyledLink to="portfolio" smooth={true} duration={500} offset={-50} >portfolio</StyledLink>
                         </LiText>
                         <ThemeToggle>
-                            <img src={sun} alt="sun"/>
+                            <img onClick={() => this.changeButtonText()} src={sun} alt="sun" />
                         </ThemeToggle>
                         <LanguageToggle>
                             <Eng>eng</Eng>
                             <Ua>ua</Ua>
                         </LanguageToggle>
-                        <Btn onClick={() => this.changeButtonText("New Text")}>
-                            {this.state.buttonText}
+                        <Btn>
+                            Contact me
                         </Btn>
                     </Ul>
                 </Header>
