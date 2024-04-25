@@ -7,6 +7,7 @@ import Skills from "./modules/skills";
 import Portfolio from "./modules/portfolio";
 import Contacts from "./modules/contacts";
 import Footer from "./modules/footer";
+import ModalWindow from "./modules/modal-window";
 
 const Container = styled.div`
     width:90%;
@@ -55,6 +56,7 @@ export default class IndexPage extends Component {
             <Portfolio/>
             <Contacts/>
             <Footer/>
+            <ModalWindow/>
     </Container>
         );
     }
