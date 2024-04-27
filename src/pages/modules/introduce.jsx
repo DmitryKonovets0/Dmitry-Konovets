@@ -185,11 +185,12 @@ const SectionIntroduce = styled.div`
     position: absolute;
     background: transparent;
     bottom: 69px;
-    left: 0;
+    left: ${props => props.hideWrapper ? '-40%' : 0 };
     z-index: 4;
     gap: 46px;
     width: 380px;
     height: 38px;
+    transition: 2s all;
 `, IconLinkYoutube = styled.a`
     position: relative;
     bottom: 3px;
@@ -207,18 +208,8 @@ export default class Introduce extends Component {
         this.linkedin = 'https://www.linkedin.com/in/dmitry-konovets-021a34263/'
         this.github = 'https://github.com/DmitryKonovets0'
         this.state = {
-            buttonText: "Contact me", // Начальный текст кнопки
-            t: 0
-        };
-    }
-
-    changeButtonText = (newButtonText) => {
-        this.props.changeTState(1);
-
-        // Изменяем состояние buttonText
-        this.setState({
-            buttonText: newButtonText
-        });
+            hideWrapper: props.hideWrapper
+        }
     }
     render() {
         return (
@@ -232,13 +223,13 @@ export default class Introduce extends Component {
                              <StyledLink to="portfolio" smooth={true} duration={500} offset={-50} >portfolio</StyledLink>
                         </LiText>
                         <ThemeToggle>
-                            <img onClick={() => this.changeButtonText()} src={sun} alt="sun" />
+                            <img onClick={() => this.props.changeTheme()} src={sun} alt="sun" />
                         </ThemeToggle>
                         <LanguageToggle>
                             <Eng>eng</Eng>
                             <Ua>ua</Ua>
                         </LanguageToggle>
-                        <Btn>
+                        <Btn onClick={() => this.props.openModal()}>
                             Contact me
                         </Btn>
                     </Ul>
@@ -267,7 +258,7 @@ export default class Introduce extends Component {
                     <Dmitry src={I} alt="Dmitry-Konovets"/>
                 <BubbleFirst src={bubbleFirst} alt='bubble'/>
                 <BubbleSecond src={bubbleSecond} alt='bubble'/>
-                <WrapperIcons>
+                <WrapperIcons hideWrapper={this.props.hideWrapper}>
                     <IconsLink href={this.github}><IconsImg src={githubCatIcon} alt="github"/></IconsLink>
                     <IconsLink href={this.linkedin}><IconsImg src={linkedinIcon} alt="linkedin"/></IconsLink>
                     <IconsLink href={this.instagram}><IconsImg src={instagramIcon} alt="instagram"/></IconsLink>

@@ -8,15 +8,61 @@ import instagramActive from '../../images/Instagram-active.svg'
 import telegramActive from '../../images/Telegram-active.svg'
 import emailActive from '../../images/Email-active.svg'
 
-const Wrapper = styled.div`
+const ModalSection = styled.div`
+    position: relative;
+    z-index: 6;
+    display: ${props => props.modal ? 'block' : 'none'};
+    animation: ani .4s forwards;
+    @keyframes ani {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+`,
+Modal = styled.div`
     width: 550px;
-    height: 494px;
-    padding: 50px 50px 40px;
+    height: ${props => props.elementActive ? '515px' : '275px'};
+    padding: 50px;
+    transition: .5s all;
     border-radius: 30px;
     position: fixed;
     top: 20vh;
     left: 50vw;
     transform: translate(-50%);
+    z-index: 7;
+`,
+Overlay = styled.div`
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.3);
+`,
+CloseBtnWrapper = styled.div`
+    position: absolute;
+    right: 18px;
+    top: 20px;
+    
+    
+`,  CloseBtn = styled.div`
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            position: relative;
+            &:after,&:before {
+                content: '';
+                position: absolute;
+                width: 1px;
+                height: 100%;
+                background-color: #a3a3a3;;
+            }
+            &:after{
+                transform: rotate(-45deg);
+            }
+            &:before{
+                transform: rotate(45deg);
+            }
 `,
 Heading = styled.h2`
     font-size: 30px;
@@ -27,7 +73,6 @@ Span = styled.span`
     background-image: linear-gradient(92deg, #283c86 0%, #45a247 94%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
-
 `,
 Subheader = styled.h3`
     font-size: 20px;
@@ -50,6 +95,14 @@ QuestionIcon = styled.img`
 `,
 WrapperInput = styled.div`
     margin-top: 20px;
+    display: ${props => props.leave !== '' ? "block" : "none" };
+    transition: 5s all;
+        animation: ani .9s forwards;
+        @keyframes ani {
+            0% {opacity:0;}
+            100% {opacity:1}
+        }
+    }
 `,
 InputHeading = styled.h2`
     font-size: 15px;
@@ -65,10 +118,16 @@ InputString = styled.input`
 `,
 Btn = styled.button`
     cursor: pointer;
-    display: flex;
+    display: ${props => props.leave !== '' ? "flex" : "none" };
     width: 105px;
     height: 35px;
     justify-content: center;
+    animation: btn 1s forwards;
+    @keyframes btn {
+        0% {opacity: 0; display: none}
+        20% {opacity:.3; display: none}
+        100% {opacity: 1; display: flex}
+    }
     align-items: center;
     padding: 10px;
     border-radius: 10px;
@@ -87,56 +146,76 @@ export default class ModalWindow extends Component {
             email: false,
             telegram: false,
             instagram: false,
-            leaveT: '',
-            leave: {
-                leaveEmail: 'Leave your email',
-                leaveInstagram: 'Leave your nickname',
-                leaveTelegram: 'Leave your nickname'
-            },
-            placeholder: {
-                placeholderEmail: 'yourname@gmail.com',
-                placeholderInstagram: 'Leave your nickname',
-                placeholderTelegram: 'Leave your nickname'
-            }
+            elementActive: false,
+            leave: '',
+            placeholder: ''
         }
     }
+    addState = (e) => {
+            if(e.target === document.querySelector('#email')) {
+                this.setState({ email: true });
+                this.setState({ leave: 'Leave your email' });
+                this.setState({ placeholder: 'yourname@gmail.com' });
+                this.setState({ elementActive: true });
+            } else if(e.target === document.querySelector('#telegram')) {
+                this.setState({ telegram: true });
+                this.setState({ leave: 'Leave your nickname' });
+                this.setState({ placeholder: '@Yourname' });
+                this.setState({ elementActive: true });
+            } else if(e.target === document.querySelector('#instagram')) {
+                this.setState({ instagram: true });
+                this.setState({ leave: 'Leave your nickname' });
+                this.setState({ placeholder: '@Yourname' });
+                this.setState({ elementActive: true });
+            }
+    }
+    clearState = () => {
+        this.setState({
+            email: false,
+            telegram: false,
+            instagram: false,
+            elementActive: false,
+            leave: '',
+            placeholder: ''});
+    }
     setActive = (e) => {
-        if(e.target === document.querySelector('#email')) {
-            this.setState({ email: true });
-            this.setState({ leaveT: 'Leave your email' });
-        } else if(e.target === document.querySelector('#telegram')) {
-            this.setState({ telegram: true });
-            this.setState({ leaveT: 'Leave your nickname    ' });
-            console.log(2)
-        } else if(e.target === document.querySelector('#instagram')) {
-            this.setState({ instagram: true });
-            console.log(3)
+        if(this.state.leave === '') {
+            this.addState(e)
+        } else {
+            this.clearState()
+            this.addState(e)
         }
     }
     render() {
-        const {email, telegram, instagram} = this.state
+        const {email, telegram, instagram, leave} = this.state
         return(
-            <Wrapper>
-                <Heading>You have a <Span>question</Span>?</Heading>
-                <Subheader>Leave it here!</Subheader>
-                <QuestionText>How to contact you?</QuestionText>
-                <QuestionWrapperIcons>
-                    <QuestionIcon onClick={this.setActive} id='email' src={email === true ? emailActive : emailIcon} alt=""/>
-                    <QuestionIcon onClick={this.setActive} id='telegram' src={telegram === true ? telegramActive : telegramIcon} alt=""/>
-                    <QuestionIcon onClick={this.setActive} id='instagram' src={instagram === true ? instagramActive : instagramIcon} alt=""/>
-                </QuestionWrapperIcons>
-                <WrapperInput>
-                    <InputHeading>{this.state.leaveT}</InputHeading>
-                    <InputString type="text" placeholder={this.state.placeholder.placeholderEmail}/>
-                </WrapperInput>
-                <WrapperInput>
-                    <InputHeading>Leave your message</InputHeading>
-                    <InputString type="text" placeholder='Hey, Dmytro. Could you tell me...'/>
-                </WrapperInput>
-                <Btn>
-                    submit
-                </Btn>
-            </Wrapper>
+            <ModalSection modal={this.props.modal}>
+                <Overlay>
+                    <Modal elementActive={this.state.elementActive}>
+                        <CloseBtnWrapper><CloseBtn></CloseBtn></CloseBtnWrapper>
+                        <Heading>You have a <Span>question</Span>?</Heading>
+                        <Subheader>Leave it here!</Subheader>
+                        <QuestionText>How to contact you?</QuestionText>
+                        <QuestionWrapperIcons>
+                            <QuestionIcon onClick={this.setActive} id='email' src={email === true ? emailActive : emailIcon} alt=""/>
+                            <QuestionIcon onClick={this.setActive} id='telegram' src={telegram === true ? telegramActive : telegramIcon} alt=""/>
+                            <QuestionIcon onClick={this.setActive} id='instagram' src={instagram === true ? instagramActive : instagramIcon} alt=""/>
+                        </QuestionWrapperIcons>
+                        <WrapperInput leave={leave} >
+                            <InputHeading>{this.state.leave}</InputHeading>
+                            <InputString type="text" placeholder={this.state.placeholder}/>
+                        </WrapperInput>
+                        <WrapperInput leave={leave} >
+                            <InputHeading >Leave your message</InputHeading>
+                            <InputString type="text" placeholder='Hey, Dmytro. Could you tell me...'/>
+                        </WrapperInput>
+                        <Btn leave={leave}>
+                            submit
+                        </Btn>
+                    </Modal>
+                </Overlay>
+            </ModalSection>
+
         )
     }
 }

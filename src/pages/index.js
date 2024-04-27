@@ -10,7 +10,7 @@ import Footer from "./modules/footer";
 import ModalWindow from "./modules/modal-window";
 
 const Container = styled.div`
-    width:90%;
+    width: 90%;
     margin: 0 auto;
 `
 const GlobalStyle = createGlobalStyle`
@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
         color: ${props => props.textColor};
     }
     body {
+        overflow: ${props => props.modal ? 'hidden' : "auto"};
         overflow-x: hidden;
     }
     a{
@@ -36,28 +37,54 @@ export default class IndexPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            t: 0
+            clickToggle: false,
+            modal: false,
+            hideWrapper: false
+
         };
     }
-    changeTState = (newValue) => {
-        this.setState({ t: newValue });
+    changeTheme = () => {
+        this.setState({ clickToggle: true });
+    }
+    openModal = () => {
+        this.setState({ modal: true });
+    }
+    closeModal = () => {
+        this.setState({ modal: false });
+    }
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll);
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
 
+    handleScroll = () => {
+        const scrolledPixels = window.scrollY;
+        console.log(scrolledPixels);
+
+        if (scrolledPixels > 390) {
+            this.setState({ hideWrapper: true });
+        } else {
+            this.setState({ hideWrapper: false });
+        }
+    }
     render() {
-        const textColor = this.state.t === 1 ? '#202020' : '#f4f4f4'
-        const backgroundColor = this.state.t === 1 ? '#fff' : '#202020'
+
+        const textColor = this.state.clickToggle === true ? '#202020' : '#f4f4f4'
+        const backgroundColor = this.state.clickToggle === true ? '#fff' : '#202020'
 
         return (
         <Container>
-            <GlobalStyle backgroundColor={backgroundColor} textColor={textColor} />
-            <Introduce t={this.state.t} changeTState={this.changeTState} />
-                <Skills/>
+            <GlobalStyle backgroundColor={backgroundColor} textColor={textColor} modal={this.state.modal}/>
+            <Introduce clickToggle={this.state.clickToggle} hideWrapper={this.state.hideWrapper} modal={this.state.modal}  openModal={this.openModal} changeTheme={this.changeTheme} />
+            <Skills hideWrapper={this.state.hideWrapper}/>
             <Portfolio/>
             <Contacts/>
             <Footer/>
-            <ModalWindow/>
-    </Container>
+            <ModalWindow modal={this.state.modal} closeModal={this.closeModal}/>
+        </Container>
         );
     }
 }

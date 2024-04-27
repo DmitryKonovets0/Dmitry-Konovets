@@ -25,7 +25,8 @@ const SectionSkills = styled.div`
 const WrapperIcons = styled.div`
     position: fixed;
     background: transparent;
-    left: -1%;
+    left: ${props => props.hideWrapper ? '-1%' : '-10%'};
+    transition: 1s all;
     display: flex;
     flex-direction: column;
     padding-left: 22px;
@@ -80,11 +81,7 @@ const SpanWord =  styled.span`
     100% {
         background-position: 100% 50%;
     }
-}
-
-\`
-;
-`
+}`
 const TitleSkills = styled.h2`
     margin-top: 300px;
     font-size: 30px;
@@ -122,11 +119,16 @@ const Divider = styled.div`
 
 `
 export default class Skills extends Component {
-
+    constructor(props) {
+    super(props);
+    this.state = {
+        hideWrapper: props.hideWrapper
+    }
+}
     render() {
         return(
             <SectionSkills id='skills'>
-                    <WrapperIcons>
+                    <WrapperIcons hideWrapper={this.props.hideWrapper}>
                         <Stroke src={wrapperIcons} alt='wrapper-icons'/>
                         <IconsLink href={this.github}><IconsImg src={githubCatIcon} alt="github"/></IconsLink>
                         <IconsLink href={this.linkedin}><IconsImg src={linkedinIcon} alt="linkedin"/></IconsLink>
