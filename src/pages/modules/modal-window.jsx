@@ -41,11 +41,14 @@ Overlay = styled.div`
 `,
 CloseBtnWrapper = styled.div`
     position: absolute;
-    right: 18px;
-    top: 20px;
+    background: none;
+    right: 500px;
+    z-index: 9;
+    top: 187px;
     
     
 `,  CloseBtn = styled.div`
+            background: none;
             width: 20px;
             height: 20px;
             cursor: pointer;
@@ -55,10 +58,12 @@ CloseBtnWrapper = styled.div`
                 position: absolute;
                 width: 1px;
                 height: 100%;
-                background-color: #a3a3a3;;
+                background-color: #a3a3a3;
+                left: 9px;
             }
             &:after{
                 transform: rotate(-45deg);
+                
             }
             &:before{
                 transform: rotate(45deg);
@@ -190,9 +195,9 @@ export default class ModalWindow extends Component {
         const {email, telegram, instagram, leave} = this.state
         return(
             <ModalSection modal={this.props.modal}>
-                <Overlay>
-                    <Modal elementActive={this.state.elementActive}>
-                        <CloseBtnWrapper><CloseBtn></CloseBtn></CloseBtnWrapper>
+                <Overlay onClick={this.props.closeModal} >
+                    <CloseBtnWrapper id='close' onClick={this.props.closeModal}><CloseBtn></CloseBtn></CloseBtnWrapper>
+                    <Modal id='modal' elementActive={this.state.elementActive}>
                         <Heading>You have a <Span>question</Span>?</Heading>
                         <Subheader>Leave it here!</Subheader>
                         <QuestionText>How to contact you?</QuestionText>

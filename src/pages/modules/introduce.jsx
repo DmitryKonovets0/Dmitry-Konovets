@@ -202,7 +202,7 @@ const SectionIntroduce = styled.div`
 export default class Introduce extends Component {
     constructor(props) {
         super(props);
-        this.instagram = 'https://www.instagram.com/konovets_dmitry/';
+        this.instagram = 'https://www.instagram.com/dmitry_konovets/';
         this.telegram = 'https://t.me/DmitryKonovets';
         this.youtube = 'https://www.youtube.com/channel/UCGdbh3u1lShvIrFH7h5D0yw'
         this.linkedin = 'https://www.linkedin.com/in/dmitry-konovets-021a34263/'

@@ -74,10 +74,11 @@ const SectionPortfolio = styled.div`
     margin-top: 60px;
     margin-bottom: -60px;
 `, ButtonP = styled.div`
+    cursor: pointer;
     width: 190px;
     height: 35px;
-    background: #fff;
-    color: black;
+    background: ${props => props.activeP ? 'linear-gradient(95deg, #283c86 0%, #45a247 94%);' : '#fff'};
+    color: ${props => props.activeP ? "#fff" : 'black'};
     font-size: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -86,15 +87,17 @@ const SectionPortfolio = styled.div`
     align-items: center;
 `, ButtonW = styled.div`
     width: 190px;
+    cursor: pointer;
     height: 35px;
-    background: #fff;
-    color: black;
+    color: ${props => props.activeW ? "#fff" : 'black'};
     font-size: 20px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: ${props => props.activeW ? 'linear-gradient(284deg, #283c86 0%, #45a247 94%);' : '#fff'};;
+    
 `, WrapperProject = styled.div`
     position: relative;
     width: 610px;
@@ -149,7 +152,34 @@ const SectionPortfolio = styled.div`
     background: none;
 `;
 export default class Portfolio extends Component {
+    constructor(props) {
+    super(props);
+    this.state = {
+        activeW: true,
+        activeP: false
+    }
+}
+    setActiveState = (e) => {
+        const targetId = e.target.id;
+        if (targetId === 'buttonWork') {
+            this.setState({activeW: true})
+        } else {
+            this.setState({activeP: true})
+        }
+        console.log(1)
+    }
+    clearActiveState = () => {
+        this.setState({ activeW: false, activeP: false})
+    }
+    addActive = (e) => {
+        if(this.state.activeW === false && this.state.activeP === false) {
+            this.setActiveState(e)
+        } else {
+            this.clearActiveState()
+            this.setActiveState(e)
 
+        }
+    }
     render() {
         return(
             <SectionPortfolio id="portfolio">
@@ -162,8 +192,8 @@ export default class Portfolio extends Component {
                 <Line src={line}></Line>
                 <DmitryImg src={Dmitry}></DmitryImg>
                 <WrapperButton>
-                    <ButtonW>Work</ButtonW>
-                    <ButtonP>Personal</ButtonP>
+                    <ButtonW activeW={this.state.activeW} onClick={this.addActive} id='buttonWork'>Work</ButtonW>
+                    <ButtonP activeP={this.state.activeP}  onClick={this.addActive} >Personal</ButtonP>
                 </WrapperButton>
                 <WrapperProject>
                     <ProjectTitle>Voice tag lab</ProjectTitle>

@@ -49,8 +49,11 @@ export default class IndexPage extends Component {
     openModal = () => {
         this.setState({ modal: true });
     }
-    closeModal = () => {
-        this.setState({ modal: false });
+    closeModal = (e) => {
+        const modal = document.querySelector('#modal')
+        if(!modal || !modal.contains(e.target)) {
+            this.setState({ modal: false });
+        }
     }
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
@@ -62,8 +65,6 @@ export default class IndexPage extends Component {
 
     handleScroll = () => {
         const scrolledPixels = window.scrollY;
-        console.log(scrolledPixels);
-
         if (scrolledPixels > 390) {
             this.setState({ hideWrapper: true });
         } else {
