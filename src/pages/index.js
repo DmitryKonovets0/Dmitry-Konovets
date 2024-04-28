@@ -65,11 +65,12 @@ export default class IndexPage extends Component {
 
     handleScroll = () => {
         const scrolledPixels = window.scrollY;
-        if (scrolledPixels > 390) {
+        if (scrolledPixels > 390 && scrolledPixels < 3823 ) {
             this.setState({ hideWrapper: true });
         } else {
             this.setState({ hideWrapper: false });
         }
+        console.log(scrolledPixels)
     }
     render() {
 
@@ -82,7 +83,7 @@ export default class IndexPage extends Component {
             <Introduce clickToggle={this.state.clickToggle} hideWrapper={this.state.hideWrapper} modal={this.state.modal}  openModal={this.openModal} changeTheme={this.changeTheme} />
             <Skills hideWrapper={this.state.hideWrapper}/>
             <Portfolio/>
-            <Contacts/>
+            <Contacts hideWrapper={this.state.hideWrapper}/>
             <Footer/>
             <ModalWindow modal={this.state.modal} closeModal={this.closeModal}/>
         </Container>

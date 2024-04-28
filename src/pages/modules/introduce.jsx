@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
+import Links from "../../assets/links";
 
 import sun from '../../images/icons/sun.svg'
 import arrow1 from '../../images/arrow/arrow-1.svg'
@@ -202,16 +203,12 @@ const SectionIntroduce = styled.div`
 export default class Introduce extends Component {
     constructor(props) {
         super(props);
-        this.instagram = 'https://www.instagram.com/dmitry_konovets/';
-        this.telegram = 'https://t.me/DmitryKonovets';
-        this.youtube = 'https://www.youtube.com/channel/UCGdbh3u1lShvIrFH7h5D0yw'
-        this.linkedin = 'https://www.linkedin.com/in/dmitry-konovets-021a34263/'
-        this.github = 'https://github.com/DmitryKonovets0'
         this.state = {
             hideWrapper: props.hideWrapper
         }
     }
     render() {
+        const links = new Links()
         return (
 
             <SectionIntroduce id='about-me'>
@@ -259,11 +256,11 @@ export default class Introduce extends Component {
                 <BubbleFirst src={bubbleFirst} alt='bubble'/>
                 <BubbleSecond src={bubbleSecond} alt='bubble'/>
                 <WrapperIcons hideWrapper={this.props.hideWrapper}>
-                    <IconsLink href={this.github}><IconsImg src={githubCatIcon} alt="github"/></IconsLink>
-                    <IconsLink href={this.linkedin}><IconsImg src={linkedinIcon} alt="linkedin"/></IconsLink>
-                    <IconsLink href={this.instagram}><IconsImg src={instagramIcon} alt="instagram"/></IconsLink>
-                    <IconsLink href={this.telegram}><IconsImg src={telegramIcon} alt="telegram"/></IconsLink>
-                    <IconLinkYoutube href={this.youtube}><IconsImg src={youtubeIcon} alt="youtube"/></IconLinkYoutube>
+                    <IconsLink href={links.github}><IconsImg src={githubCatIcon} alt="github"/></IconsLink>
+                    <IconsLink href={links.linkedin}><IconsImg src={linkedinIcon} alt="linkedin"/></IconsLink>
+                    <IconsLink href={links.instagram}><IconsImg src={instagramIcon} alt="instagram"/></IconsLink>
+                    <IconsLink href={links.telegram}><IconsImg src={telegramIcon} alt="telegram"/></IconsLink>
+                    <IconLinkYoutube href={links.youtube}><IconsImg src={youtubeIcon} alt="youtube"/></IconLinkYoutube>
                 </WrapperIcons>
             </SectionIntroduce>
         );

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Component } from "react";
 import styled from "styled-components";
+import Links from "../../assets/links";
 
 import githubCatIcon from '../../images/icons/github-cat.svg'
 import linkedinIcon from '../../images/icons/linkedin.svg'
@@ -121,20 +122,22 @@ const Divider = styled.div`
 export default class Skills extends Component {
     constructor(props) {
     super(props);
+
     this.state = {
-        hideWrapper: props.hideWrapper
+        hideWrapper: props.hideWrapper,
     }
 }
     render() {
+        const links = new Links()
         return(
             <SectionSkills id='skills'>
                     <WrapperIcons hideWrapper={this.props.hideWrapper}>
                         <Stroke src={wrapperIcons} alt='wrapper-icons'/>
-                        <IconsLink href={this.github}><IconsImg src={githubCatIcon} alt="github"/></IconsLink>
-                        <IconsLink href={this.linkedin}><IconsImg src={linkedinIcon} alt="linkedin"/></IconsLink>
-                        <IconsLink href={this.instagram}><IconsImg src={instagramIcon} alt="instagram"/></IconsLink>
-                        <IconsLink href={this.telegram}><IconsImg src={telegramIcon} alt="telegram"/></IconsLink>
-                        <IconLinkYoutube href={this.youtube}><IconsImg src={youtubeIcon} alt="youtube"/></IconLinkYoutube>
+                        <IconsLink href={links.github}><IconsImg src={githubCatIcon} alt="github"/></IconsLink>
+                        <IconsLink href={links.linkedin}><IconsImg src={linkedinIcon} alt="linkedin"/></IconsLink>
+                        <IconsLink href={links.instagram}><IconsImg src={instagramIcon} alt="instagram"/></IconsLink>
+                        <IconsLink href={links.telegram}><IconsImg src={telegramIcon} alt="telegram"/></IconsLink>
+                        <IconLinkYoutube href={links.youtube}><IconsImg src={youtubeIcon} alt="youtube"/></IconLinkYoutube>
                     </WrapperIcons>
                 <MainText >
                     I got all my <SpanWord>skills</SpanWord> from mentored courses. <br/>
